@@ -1,1 +1,41 @@
-https://github.com/cdjakinori-coder/nue-menu/new/main?filename=index.html
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>NUE.</title>
+<meta name="apple-mobile-web-app-title" content="NUE.">
+<link rel="apple-touch-icon" href="https://lh3.googleusercontent.com/d/1DwkuhM86mq7v007G6wYjFahwTq4JFuPI">
+<link rel="icon" type="image/png" href="https://lh3.googleusercontent.com/d/1DwkuhM86mq7v007G6wYjFahwTq4JFuPI">
+<style>
+  body{margin:0;font-family:-apple-system,"Hiragino Sans",sans-serif;background:#c7c1b7;color:#fff;text-align:center}
+  .w{max-width:420px;margin:0 auto;padding:48px 20px}
+  img{width:120px;height:120px;border-radius:24px}
+  a.b{display:block;margin:28px 0 0;padding:16px;border-radius:14px;background:#fff;color:#5b5348;font-weight:bold;text-decoration:none;font-size:18px}
+  #add{display:none;background:rgba(255,255,255,.2);border-radius:14px;padding:14px;margin-top:24px;line-height:1.8;text-align:left;font-size:15px}
+</style>
+</head>
+<body>
+<div class="w">
+  <img src="https://lh3.googleusercontent.com/d/1DwkuhM86mq7v007G6wYjFahwTq4JFuPI" alt="NUE.">
+  <div id="add">
+    <b>このページをホーム画面に追加してください</b><br>
+    ① 下の共有ボタン（□↑）を押す<br>
+    ② 「ホーム画面に追加」を押す<br>
+    ③ 「Webアプリとして開く」は<b>オフ</b>にして「追加」<br>
+    次からは、ホーム画面のNUE.アイコンを押すとメニューが開きます。
+  </div>
+  <a class="b" id="go" href="https://script.google.com/macros/s/AKfycbxoGYEn-IT3QSgxgCp37C6dL02eWqOBHmbip4Q-O60kDN1mXtcMUzV4KHb1oO2yl52c/exec?p=home">NUE. スタッフメニューを開く</a>
+</div>
+<script>
+  /* #add 付きで開いたときだけ「ホーム画面に追加」の案内を出す（URLから #add を消すので、追加したアイコンはそのまま開ける）。
+     それ以外（ホーム画面のアイコンから開いたとき）はすぐメニューへ移動する */
+  if (location.hash === '#add') {
+    document.getElementById('add').style.display = 'block';
+    history.replaceState(null, '', location.pathname);
+  } else {
+    location.replace(document.getElementById('go').href);
+  }
+</script>
+</body>
+</html>
